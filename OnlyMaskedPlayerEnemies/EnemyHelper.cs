@@ -1,5 +1,4 @@
-﻿using GameNetcodeStuff;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,6 +13,8 @@ internal static class EnemyHelper
 
     public static void SetOnlyEnemy(string enemyName)
     {
+        if (StartOfRound.Instance == null) return;
+
         foreach (var level in StartOfRound.Instance.levels)
         {
             SetOnlyEnemyForLevel(level, enemyName, rarity: 10000, maxSpawnCount: Plugin.ConfigManager.MaxSpawnCount.Value);
